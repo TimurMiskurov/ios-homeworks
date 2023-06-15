@@ -36,6 +36,17 @@ class ProfileHeaderView: UIView {
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
+    
+    lazy var newButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.setTitle("Нажми меня", for: .normal)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.addTarget(self, action: #selector(btnTap), for: .touchUpInside)
+        return button
+        
+    }()
+        
+    
     let textField: UITextField = {
         let textField = UITextField()
         textField.backgroundColor = .white
@@ -67,6 +78,7 @@ class ProfileHeaderView: UIView {
         
     }()
     
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         
@@ -75,7 +87,7 @@ class ProfileHeaderView: UIView {
         addSubview(statusLabel)
         addSubview(statusButton)
         addSubview(textField)
-        
+        addSubview(newButton)
         
         NSLayoutConstraint.activate([
             
@@ -104,8 +116,11 @@ class ProfileHeaderView: UIView {
             statusButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
             statusButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
             statusButton.heightAnchor.constraint(equalToConstant: 50),
-            statusButton.bottomAnchor.constraint(equalTo: bottomAnchor )
+            statusButton.bottomAnchor.constraint(equalTo: bottomAnchor ),
             
+            newButton.leadingAnchor.constraint(equalTo: leadingAnchor),
+            newButton.trailingAnchor.constraint(equalTo: trailingAnchor),
+            newButton.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor)
             
         ])
     }
