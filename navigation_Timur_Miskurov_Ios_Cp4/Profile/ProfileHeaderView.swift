@@ -9,7 +9,10 @@ import UIKit
 
 
 class ProfileHeaderView: UIView {
-    let nameLabel: UILabel = {
+ 
+
+    
+        let nameLabel: UILabel = {
         let label = UILabel()
         label.text = "Hasbulla"
         label.font = UIFont.boldSystemFont(ofSize: 18)
@@ -90,8 +93,9 @@ class ProfileHeaderView: UIView {
         addSubview(newButton)
         
         NSLayoutConstraint.activate([
-            
-            
+           
+           
+
             textField.topAnchor.constraint(equalTo: statusLabel.bottomAnchor, constant: 15),
             textField.widthAnchor.constraint(equalToConstant: 210),
             textField.heightAnchor.constraint(equalToConstant: 50),
